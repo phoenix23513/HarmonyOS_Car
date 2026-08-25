@@ -2,24 +2,47 @@
 #include "sys.h"
 
 int main(void)
-  { 
-		Stm32_Clock_Init(9);						//外部时钟8Mhz 9倍频  8*9= 72mhz倍频72mhz
-		MY_NVIC_PriorityGroupConfig(2);	//=====中断优先级分组		
-		uart_init(115200);	            //=====串口初始化为115200
-		JTAG_Set(JTAG_SWD_DISABLE);     //=====关闭JTAG接口
-		JTAG_Set(SWD_ENABLE);           //=====打开SWD接口 可以利用主板的SWD接口调试
+{
+    u8 i;
 
-		colorful_led_Init();            //=====炫彩灯初始化
+    Stm32_Clock_Init(9);
+    MY_NVIC_PriorityGroupConfig(2);
+    uart_init(115200);
 
-		printf("QST青软\r\n");
-		/**主要程序**/
-	while(1)
-	{
-		if(USART_RX_STA==1)  //判断接收到完整数据点灯
-			L_runingled();
+    JTAG_Set(JTAG_SWD_DISABLE);
+    JTAG_Set(SWD_ENABLE);
 
-		delay_ms(100);
-	}
+    colorful_led_Init();
+
+    printf("LED CONTROL READY\r\n");
+    printf("HELLO = start, STOP! = stop\r\n");
+
+    while(1)
+    {
+        if(USART_RX_STA == 1)
+        {
+            printf("LED START\r\n");
+
+            R_led_mode();       /* 点亮后灯 */
+            L_led_mode();       /* 前灯彩色循环，收到 STOP! 后返回 */
+        }
+
+        if(USART_RX_STA == 2)
+        {
+            /* 关闭六颗前灯 */
+            for(i = 1; i <= led_num; i++)
+            {
+                L_ws2812_rgb(i, WS_DARK);
+            }
+            L_ws2812_refresh(led_num);
+
+            /* 关闭六颗后灯 */
+            R_led_CLC();
+
+            USART_RX_STA = 0;
+            printf("LED OFF\r\n");
+        }
+
+        delay_ms(100);
+    }
 }
-	
-

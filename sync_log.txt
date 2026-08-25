@@ -1,0 +1,746 @@
+﻿==============================================================================
+2026-08-25 17:26:10
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Preview
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  STM32\CORE\1_Project_Template_LED_Chaser\keilkilll.bat
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\colorful_led.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\colorful_led.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\colorful_led.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\core_cm3.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\core_cm3.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\core_cm3.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\delay.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\delay.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\delay.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\main.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\main.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\main.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\misc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\misc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\misc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\startup_stm32f10x_md.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\startup_stm32f10x_md.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_adc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_adc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_adc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_bkp.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_bkp.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_bkp.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_can.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_can.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_can.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_cec.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_cec.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_cec.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_crc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_crc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_crc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dac.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dac.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dac.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dbgmcu.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dbgmcu.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dbgmcu.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dma.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dma.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dma.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_exti.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_exti.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_exti.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_flash.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_flash.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_flash.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_fsmc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_fsmc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_fsmc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_gpio.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_gpio.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_gpio.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_i2c.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_i2c.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_i2c.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_it.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_it.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_it.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_iwdg.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_iwdg.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_iwdg.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_pwr.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_pwr.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_pwr.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rcc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rcc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rcc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rtc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rtc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rtc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_sdio.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_sdio.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_sdio.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_spi.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_spi.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_spi.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_tim.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_tim.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_tim.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_usart.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_usart.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_usart.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_wwdg.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_wwdg.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_wwdg.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\sys.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\sys.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\sys.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\system_stm32f10x.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\system_stm32f10x.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\system_stm32f10x.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.axf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.build_log.htm
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.hex
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.htm
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.lnp
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template_Template.dep
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\usart.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\usart.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\usart.o
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\DebugConfig\Template_STM32F103C8_1.0.0.dbgconf
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\JLinkSettings.ini
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Listings\startup_stm32f10x_md.lst
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Listings\Template.map
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\QST
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.24539
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.Administrator
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.Kozakemi
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.lenovo
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.XIA ZHIPENG
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvoptx
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvprojx
+  STM32\keilkilll.bat
+  STM32\OBJ\colorful_led.crf
+  STM32\OBJ\colorful_led.d
+  STM32\OBJ\colorful_led.o
+  STM32\OBJ\core_cm3.crf
+  STM32\OBJ\core_cm3.d
+  STM32\OBJ\core_cm3.o
+  STM32\OBJ\delay.crf
+  STM32\OBJ\delay.d
+  STM32\OBJ\delay.o
+  STM32\OBJ\main.crf
+  STM32\OBJ\main.d
+  STM32\OBJ\main.o
+  STM32\OBJ\misc.crf
+  STM32\OBJ\misc.d
+  STM32\OBJ\misc.o
+  STM32\OBJ\startup_stm32f10x_md.d
+  STM32\OBJ\startup_stm32f10x_md.o
+  STM32\OBJ\stm32f10x_adc.crf
+  STM32\OBJ\stm32f10x_adc.d
+  STM32\OBJ\stm32f10x_adc.o
+  STM32\OBJ\stm32f10x_bkp.crf
+  STM32\OBJ\stm32f10x_bkp.d
+  STM32\OBJ\stm32f10x_bkp.o
+  STM32\OBJ\stm32f10x_can.crf
+  STM32\OBJ\stm32f10x_can.d
+  STM32\OBJ\stm32f10x_can.o
+  STM32\OBJ\stm32f10x_cec.crf
+  STM32\OBJ\stm32f10x_cec.d
+  STM32\OBJ\stm32f10x_cec.o
+  STM32\OBJ\stm32f10x_crc.crf
+  STM32\OBJ\stm32f10x_crc.d
+  STM32\OBJ\stm32f10x_crc.o
+  STM32\OBJ\stm32f10x_dac.crf
+  STM32\OBJ\stm32f10x_dac.d
+  STM32\OBJ\stm32f10x_dac.o
+  STM32\OBJ\stm32f10x_dbgmcu.crf
+  STM32\OBJ\stm32f10x_dbgmcu.d
+  STM32\OBJ\stm32f10x_dbgmcu.o
+  STM32\OBJ\stm32f10x_dma.crf
+  STM32\OBJ\stm32f10x_dma.d
+  STM32\OBJ\stm32f10x_dma.o
+  STM32\OBJ\stm32f10x_exti.crf
+  STM32\OBJ\stm32f10x_exti.d
+  STM32\OBJ\stm32f10x_exti.o
+  STM32\OBJ\stm32f10x_flash.crf
+  STM32\OBJ\stm32f10x_flash.d
+  STM32\OBJ\stm32f10x_flash.o
+  STM32\OBJ\stm32f10x_fsmc.crf
+  STM32\OBJ\stm32f10x_fsmc.d
+  STM32\OBJ\stm32f10x_fsmc.o
+  STM32\OBJ\stm32f10x_gpio.crf
+  STM32\OBJ\stm32f10x_gpio.d
+  STM32\OBJ\stm32f10x_gpio.o
+  STM32\OBJ\stm32f10x_i2c.crf
+  STM32\OBJ\stm32f10x_i2c.d
+  STM32\OBJ\stm32f10x_i2c.o
+  STM32\OBJ\stm32f10x_it.crf
+  STM32\OBJ\stm32f10x_it.d
+  STM32\OBJ\stm32f10x_it.o
+  STM32\OBJ\stm32f10x_iwdg.crf
+  STM32\OBJ\stm32f10x_iwdg.d
+  STM32\OBJ\stm32f10x_iwdg.o
+  STM32\OBJ\stm32f10x_pwr.crf
+  STM32\OBJ\stm32f10x_pwr.d
+  STM32\OBJ\stm32f10x_pwr.o
+  STM32\OBJ\stm32f10x_rcc.crf
+  STM32\OBJ\stm32f10x_rcc.d
+  STM32\OBJ\stm32f10x_rcc.o
+  STM32\OBJ\stm32f10x_rtc.crf
+  STM32\OBJ\stm32f10x_rtc.d
+  STM32\OBJ\stm32f10x_rtc.o
+  STM32\OBJ\stm32f10x_sdio.crf
+  STM32\OBJ\stm32f10x_sdio.d
+  STM32\OBJ\stm32f10x_sdio.o
+  STM32\OBJ\stm32f10x_spi.crf
+  STM32\OBJ\stm32f10x_spi.d
+  STM32\OBJ\stm32f10x_spi.o
+  STM32\OBJ\stm32f10x_tim.crf
+  STM32\OBJ\stm32f10x_tim.d
+  STM32\OBJ\stm32f10x_tim.o
+  STM32\OBJ\stm32f10x_usart.crf
+  STM32\OBJ\stm32f10x_usart.d
+  STM32\OBJ\stm32f10x_usart.o
+  STM32\OBJ\stm32f10x_wwdg.crf
+  STM32\OBJ\stm32f10x_wwdg.d
+  STM32\OBJ\stm32f10x_wwdg.o
+  STM32\OBJ\sys.crf
+  STM32\OBJ\sys.d
+  STM32\OBJ\sys.o
+  STM32\OBJ\system_stm32f10x.crf
+  STM32\OBJ\system_stm32f10x.d
+  STM32\OBJ\system_stm32f10x.o
+  STM32\OBJ\Template.axf
+  STM32\OBJ\Template.build_log.htm
+  STM32\OBJ\Template.hex
+  STM32\OBJ\Template.htm
+  STM32\OBJ\Template.lnp
+  STM32\OBJ\Template_Template.dep
+  STM32\OBJ\usart.crf
+  STM32\OBJ\usart.d
+  STM32\OBJ\usart.o
+  STM32\USER\DebugConfig\Template_STM32F103C8_1.0.0.dbgconf
+  STM32\USER\JLinkSettings.ini
+  STM32\USER\Listings\startup_stm32f10x_md.lst
+  STM32\USER\Listings\Template.map
+  STM32\USER\QST
+  STM32\USER\Template.uvguix.13389
+  STM32\USER\Template.uvguix.24539
+  STM32\USER\Template.uvguix.Administrator
+  STM32\USER\Template.uvguix.Kozakemi
+  STM32\USER\Template.uvguix.lenovo
+  STM32\USER\Template.uvguix.XIA ZHIPENG
+  STM32\USER\Template.uvoptx
+  STM32\USER\Template.uvprojx
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  Hi3861\supportPack\paho_mqtt\about.html
+  Hi3861\supportPack\paho_mqtt\BUILD.gn
+  Hi3861\supportPack\paho_mqtt\bundle.json
+  Hi3861\supportPack\paho_mqtt\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\CONTRIBUTING.md
+  Hi3861\supportPack\paho_mqtt\Debug\makefile
+  Hi3861\supportPack\paho_mqtt\Debug\objects.mk
+  Hi3861\supportPack\paho_mqtt\Debug\sources.mk
+  Hi3861\supportPack\paho_mqtt\Debug\src\MQTTDeserializeConnect.d
+  Hi3861\supportPack\paho_mqtt\Debug\src\subdir.mk
+  Hi3861\supportPack\paho_mqtt\doc\DoxyfileMQTTClient.in
+  Hi3861\supportPack\paho_mqtt\doc\DoxyfileMQTTClient-C.in
+  Hi3861\supportPack\paho_mqtt\doc\DoxyfileMQTTPacket.in
+  Hi3861\supportPack\paho_mqtt\doc\pahologo.png
+  Hi3861\supportPack\paho_mqtt\edl-v10
+  Hi3861\supportPack\paho_mqtt\epl-v10
+  Hi3861\supportPack\paho_mqtt\library.properties
+  Hi3861\supportPack\paho_mqtt\LICENSE
+  Hi3861\supportPack\paho_mqtt\Makefile
+  Hi3861\supportPack\paho_mqtt\MQTTClient\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\arduino\Hello\Hello.ino
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\linux\build.sh
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\linux\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient\test\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\samples\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\samples\linux\build.sh
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\samples\linux\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\src\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\test\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\samples\baremetalserial\build
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\samples\build
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\samples\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\src\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\test\build_test
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\test\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\notice.html
+  Hi3861\supportPack\paho_mqtt\README.md
+  Hi3861\supportPack\paho_mqtt\test\mqttsas2.py
+  Hi3861\supportPack\paho_mqtt\test\MQTTV3112.py
+  Hi3861\supportPack\paho_mqtt\travis-build.sh
+  Hi3861\supportPack\paho_mqtt\travis-env-vars
+  Hi3861\supportPack\paho_mqtt\travis-install.sh
+  Hi3861\supportPack\usr_config.mk
+  Hi3861\supportPack\华为云平台模型.zip
+Staging robocopy return code: 1
+
+Result: Preview completed; no target files were changed.
+==============================================================================
+2026-08-25 17:30:37
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Synchronization
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  STM32\CORE\1_Project_Template_LED_Chaser\keilkilll.bat
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\colorful_led.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\colorful_led.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\colorful_led.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\core_cm3.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\core_cm3.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\core_cm3.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\delay.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\delay.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\delay.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\main.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\main.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\main.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\misc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\misc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\misc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\startup_stm32f10x_md.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\startup_stm32f10x_md.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_adc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_adc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_adc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_bkp.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_bkp.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_bkp.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_can.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_can.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_can.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_cec.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_cec.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_cec.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_crc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_crc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_crc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dac.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dac.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dac.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dbgmcu.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dbgmcu.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dbgmcu.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dma.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dma.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_dma.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_exti.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_exti.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_exti.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_flash.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_flash.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_flash.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_fsmc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_fsmc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_fsmc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_gpio.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_gpio.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_gpio.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_i2c.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_i2c.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_i2c.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_it.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_it.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_it.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_iwdg.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_iwdg.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_iwdg.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_pwr.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_pwr.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_pwr.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rcc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rcc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rcc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rtc.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rtc.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_rtc.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_sdio.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_sdio.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_sdio.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_spi.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_spi.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_spi.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_tim.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_tim.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_tim.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_usart.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_usart.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_usart.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_wwdg.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_wwdg.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\stm32f10x_wwdg.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\sys.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\sys.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\sys.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\system_stm32f10x.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\system_stm32f10x.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\system_stm32f10x.o
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.axf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.build_log.htm
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.hex
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.htm
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template.lnp
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\Template_Template.dep
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\usart.crf
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\usart.d
+  STM32\CORE\1_Project_Template_LED_Chaser\OBJ\usart.o
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\DebugConfig\Template_STM32F103C8_1.0.0.dbgconf
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\JLinkSettings.ini
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Listings\startup_stm32f10x_md.lst
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Listings\Template.map
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\QST
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.24539
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.Administrator
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.Kozakemi
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.lenovo
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvguix.XIA ZHIPENG
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvoptx
+  STM32\CORE\1_Project_Template_LED_Chaser\USER\Template.uvprojx
+  STM32\keilkilll.bat
+  STM32\OBJ\colorful_led.crf
+  STM32\OBJ\colorful_led.d
+  STM32\OBJ\colorful_led.o
+  STM32\OBJ\core_cm3.crf
+  STM32\OBJ\core_cm3.d
+  STM32\OBJ\core_cm3.o
+  STM32\OBJ\delay.crf
+  STM32\OBJ\delay.d
+  STM32\OBJ\delay.o
+  STM32\OBJ\main.crf
+  STM32\OBJ\main.d
+  STM32\OBJ\main.o
+  STM32\OBJ\misc.crf
+  STM32\OBJ\misc.d
+  STM32\OBJ\misc.o
+  STM32\OBJ\startup_stm32f10x_md.d
+  STM32\OBJ\startup_stm32f10x_md.o
+  STM32\OBJ\stm32f10x_adc.crf
+  STM32\OBJ\stm32f10x_adc.d
+  STM32\OBJ\stm32f10x_adc.o
+  STM32\OBJ\stm32f10x_bkp.crf
+  STM32\OBJ\stm32f10x_bkp.d
+  STM32\OBJ\stm32f10x_bkp.o
+  STM32\OBJ\stm32f10x_can.crf
+  STM32\OBJ\stm32f10x_can.d
+  STM32\OBJ\stm32f10x_can.o
+  STM32\OBJ\stm32f10x_cec.crf
+  STM32\OBJ\stm32f10x_cec.d
+  STM32\OBJ\stm32f10x_cec.o
+  STM32\OBJ\stm32f10x_crc.crf
+  STM32\OBJ\stm32f10x_crc.d
+  STM32\OBJ\stm32f10x_crc.o
+  STM32\OBJ\stm32f10x_dac.crf
+  STM32\OBJ\stm32f10x_dac.d
+  STM32\OBJ\stm32f10x_dac.o
+  STM32\OBJ\stm32f10x_dbgmcu.crf
+  STM32\OBJ\stm32f10x_dbgmcu.d
+  STM32\OBJ\stm32f10x_dbgmcu.o
+  STM32\OBJ\stm32f10x_dma.crf
+  STM32\OBJ\stm32f10x_dma.d
+  STM32\OBJ\stm32f10x_dma.o
+  STM32\OBJ\stm32f10x_exti.crf
+  STM32\OBJ\stm32f10x_exti.d
+  STM32\OBJ\stm32f10x_exti.o
+  STM32\OBJ\stm32f10x_flash.crf
+  STM32\OBJ\stm32f10x_flash.d
+  STM32\OBJ\stm32f10x_flash.o
+  STM32\OBJ\stm32f10x_fsmc.crf
+  STM32\OBJ\stm32f10x_fsmc.d
+  STM32\OBJ\stm32f10x_fsmc.o
+  STM32\OBJ\stm32f10x_gpio.crf
+  STM32\OBJ\stm32f10x_gpio.d
+  STM32\OBJ\stm32f10x_gpio.o
+  STM32\OBJ\stm32f10x_i2c.crf
+  STM32\OBJ\stm32f10x_i2c.d
+  STM32\OBJ\stm32f10x_i2c.o
+  STM32\OBJ\stm32f10x_it.crf
+  STM32\OBJ\stm32f10x_it.d
+  STM32\OBJ\stm32f10x_it.o
+  STM32\OBJ\stm32f10x_iwdg.crf
+  STM32\OBJ\stm32f10x_iwdg.d
+  STM32\OBJ\stm32f10x_iwdg.o
+  STM32\OBJ\stm32f10x_pwr.crf
+  STM32\OBJ\stm32f10x_pwr.d
+  STM32\OBJ\stm32f10x_pwr.o
+  STM32\OBJ\stm32f10x_rcc.crf
+  STM32\OBJ\stm32f10x_rcc.d
+  STM32\OBJ\stm32f10x_rcc.o
+  STM32\OBJ\stm32f10x_rtc.crf
+  STM32\OBJ\stm32f10x_rtc.d
+  STM32\OBJ\stm32f10x_rtc.o
+  STM32\OBJ\stm32f10x_sdio.crf
+  STM32\OBJ\stm32f10x_sdio.d
+  STM32\OBJ\stm32f10x_sdio.o
+  STM32\OBJ\stm32f10x_spi.crf
+  STM32\OBJ\stm32f10x_spi.d
+  STM32\OBJ\stm32f10x_spi.o
+  STM32\OBJ\stm32f10x_tim.crf
+  STM32\OBJ\stm32f10x_tim.d
+  STM32\OBJ\stm32f10x_tim.o
+  STM32\OBJ\stm32f10x_usart.crf
+  STM32\OBJ\stm32f10x_usart.d
+  STM32\OBJ\stm32f10x_usart.o
+  STM32\OBJ\stm32f10x_wwdg.crf
+  STM32\OBJ\stm32f10x_wwdg.d
+  STM32\OBJ\stm32f10x_wwdg.o
+  STM32\OBJ\sys.crf
+  STM32\OBJ\sys.d
+  STM32\OBJ\sys.o
+  STM32\OBJ\system_stm32f10x.crf
+  STM32\OBJ\system_stm32f10x.d
+  STM32\OBJ\system_stm32f10x.o
+  STM32\OBJ\Template.axf
+  STM32\OBJ\Template.build_log.htm
+  STM32\OBJ\Template.hex
+  STM32\OBJ\Template.htm
+  STM32\OBJ\Template.lnp
+  STM32\OBJ\Template_Template.dep
+  STM32\OBJ\usart.crf
+  STM32\OBJ\usart.d
+  STM32\OBJ\usart.o
+  STM32\USER\DebugConfig\Template_STM32F103C8_1.0.0.dbgconf
+  STM32\USER\JLinkSettings.ini
+  STM32\USER\Listings\startup_stm32f10x_md.lst
+  STM32\USER\Listings\Template.map
+  STM32\USER\QST
+  STM32\USER\Template.uvguix.13389
+  STM32\USER\Template.uvguix.24539
+  STM32\USER\Template.uvguix.Administrator
+  STM32\USER\Template.uvguix.Kozakemi
+  STM32\USER\Template.uvguix.lenovo
+  STM32\USER\Template.uvguix.XIA ZHIPENG
+  STM32\USER\Template.uvoptx
+  STM32\USER\Template.uvprojx
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  Hi3861\supportPack\paho_mqtt\about.html
+  Hi3861\supportPack\paho_mqtt\BUILD.gn
+  Hi3861\supportPack\paho_mqtt\bundle.json
+  Hi3861\supportPack\paho_mqtt\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\CONTRIBUTING.md
+  Hi3861\supportPack\paho_mqtt\Debug\makefile
+  Hi3861\supportPack\paho_mqtt\Debug\objects.mk
+  Hi3861\supportPack\paho_mqtt\Debug\sources.mk
+  Hi3861\supportPack\paho_mqtt\Debug\src\MQTTDeserializeConnect.d
+  Hi3861\supportPack\paho_mqtt\Debug\src\subdir.mk
+  Hi3861\supportPack\paho_mqtt\doc\DoxyfileMQTTClient.in
+  Hi3861\supportPack\paho_mqtt\doc\DoxyfileMQTTClient-C.in
+  Hi3861\supportPack\paho_mqtt\doc\DoxyfileMQTTPacket.in
+  Hi3861\supportPack\paho_mqtt\doc\pahologo.png
+  Hi3861\supportPack\paho_mqtt\edl-v10
+  Hi3861\supportPack\paho_mqtt\epl-v10
+  Hi3861\supportPack\paho_mqtt\library.properties
+  Hi3861\supportPack\paho_mqtt\LICENSE
+  Hi3861\supportPack\paho_mqtt\Makefile
+  Hi3861\supportPack\paho_mqtt\MQTTClient\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\arduino\Hello\Hello.ino
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\linux\build.sh
+  Hi3861\supportPack\paho_mqtt\MQTTClient\samples\linux\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient\test\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\samples\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\samples\linux\build.sh
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\samples\linux\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\src\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTClient-C\test\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\samples\baremetalserial\build
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\samples\build
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\samples\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\src\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\test\build_test
+  Hi3861\supportPack\paho_mqtt\MQTTPacket\test\CMakeLists.txt
+  Hi3861\supportPack\paho_mqtt\notice.html
+  Hi3861\supportPack\paho_mqtt\README.md
+  Hi3861\supportPack\paho_mqtt\test\mqttsas2.py
+  Hi3861\supportPack\paho_mqtt\test\MQTTV3112.py
+  Hi3861\supportPack\paho_mqtt\travis-build.sh
+  Hi3861\supportPack\paho_mqtt\travis-env-vars
+  Hi3861\supportPack\paho_mqtt\travis-install.sh
+  Hi3861\supportPack\usr_config.mk
+  Hi3861\supportPack\华为云平台模型.zip
+Staging robocopy return code: 1
+
+[STM32] final robocopy return code: 3
+[STM32] result: synchronized
+
+[Hi3861] final robocopy return code: 2
+[Hi3861] result: synchronized
+
+Overall result: SUCCESS
+==============================================================================
+2026-08-25 18:16:42
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Preview
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\QST_HARDWARE\colorful_led\colorful_led.c
+  STM32\SYSTEM\usart\usart.c
+  STM32\SYSTEM\usart\usart.h
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+Result: Preview completed; no target files were changed.
+==============================================================================
+2026-08-25 18:18:38
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Preview
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\QST_HARDWARE\colorful_led\colorful_led.c
+  STM32\SYSTEM\usart\usart.c
+  STM32\SYSTEM\usart\usart.h
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+Result: Preview completed; no target files were changed.
+==============================================================================
+2026-08-25 18:21:38
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Preview
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\QST_HARDWARE\colorful_led\colorful_led.c
+  STM32\SYSTEM\usart\usart.c
+  STM32\SYSTEM\usart\usart.h
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+Result: Preview completed; no target files were changed.
+==============================================================================
+2026-08-25 19:46:41
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Synchronization
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\QST_HARDWARE\colorful_led\colorful_led.c
+  STM32\SYSTEM\usart\usart.c
+  STM32\SYSTEM\usart\usart.h
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[STM32] final robocopy return code: 1
+[STM32] result: synchronized
+
+[Hi3861] final robocopy return code: 0
+[Hi3861] result: synchronized
+
+Overall result: SUCCESS

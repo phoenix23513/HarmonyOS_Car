@@ -31,7 +31,7 @@ int fputc(int ch, FILE *f)
 #if EN_USART1_RX   //如果使能了接收
 
 u8 USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
-u8 USART_RX_STA=0;       //接收状态标记	  
+volatile u8 USART_RX_STA = 0;      //接收状态标记	  
 u8 count=0;
 void uart_init(u32 bound){
   //GPIO端口设置
@@ -74,25 +74,50 @@ void uart_init(u32 bound){
 
 }
 
-void USART1_IRQHandler(void)                	//串口1中断服务程序
-	{
-	u8 Res;
+void USART1_IRQHandler(void)
+{
+    u8 Res;
 
-	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)   //判断中断类型
-		{
-			Res =USART_ReceiveData(USART1);	//读取接收到的数据
-			USART_RX_BUF[count]=Res;
-			if(USART_RX_BUF[0]=='H')      //判断接收的第一个字符是我们想要的
-				count++;
-			else                          //否则就不要
-				count=0;
-		  if(count==5&&USART_RX_BUF[4]=='O'){
-				USART_RX_STA=1;                //表示接收到完整数据
-				//printf("收到 ： %s\r\n", USART_RX_BUF);
-				//printf("USART_RX_STA ： %d\r\n", USART_RX_STA);
-			}
+    if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+    {
+        Res = (u8)USART_ReceiveData(USART1);
+
+        /* 回车或换行用于重新开始接收一条命令 */
+        if(Res == '\r' || Res == '\n')
+        {
+            count = 0;
+        }
+        else
+        {
+            USART_RX_BUF[count] = Res;
+            count++;
+
+            /* 当前命令长度固定为 5 个字符 */
+            if(count == 5)
+            {
+                if(USART_RX_BUF[0] == 'H' &&
+                   USART_RX_BUF[1] == 'E' &&
+                   USART_RX_BUF[2] == 'L' &&
+                   USART_RX_BUF[3] == 'L' &&
+                   USART_RX_BUF[4] == 'O')
+                {
+                    USART_RX_STA = 1;
+                }
+                else if(USART_RX_BUF[0] == 'S' &&
+                        USART_RX_BUF[1] == 'T' &&
+                        USART_RX_BUF[2] == 'O' &&
+                        USART_RX_BUF[3] == 'P' &&
+                        USART_RX_BUF[4] == '!')
+                {
+                    USART_RX_STA = 2;
+                }
+
+                count = 0;
+            }
+        }
     }
-    USART_ClearFlag(USART1, USART_FLAG_RXNE); //清除接收表示位
+
+    USART_ClearFlag(USART1, USART_FLAG_RXNE);
 }
 
 #endif	

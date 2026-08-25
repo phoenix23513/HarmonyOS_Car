@@ -3,18 +3,18 @@
 u8 L_ws_data[ws_num];
 u8 R_ws_data[ws_num];
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºcolorful_led½Ó¿Ú³õÊ¼»¯
-Èë¿Ú²ÎÊý£ºÎÞ 
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½colorful_ledï¿½Ó¿Ú³ï¿½Ê¼ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 void colorful_led_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //Ê¹ÄÜ¶Ë¿ÚÊ±ÖÓ
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13|GPIO_Pin_14;	          //¶Ë¿ÚÅäÖÃ
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      //ÍÆÍìÊä³ö
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //Ê¹ï¿½Ü¶Ë¿ï¿½Ê±ï¿½ï¿½
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13|GPIO_Pin_14;	          //ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     //50M
-  GPIO_Init(GPIOC, &GPIO_InitStructure);					      //¸ù¾ÝÉè¶¨²ÎÊý³õÊ¼»¯GPIOA 
+  GPIO_Init(GPIOC, &GPIO_InitStructure);					      //ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½GPIOA 
 	
 }
 
@@ -61,14 +61,14 @@ void R_ws2812_reset(void)
 	delay_us(66);
 }
 
-void L_ws2812_rgb(u8 L_ws_num,u8 ws_r,u8 ws_g,u8 ws_b)    //½«ÑÕÉ«Êý¾Ý·¢ËÍµ½Êý×éÖÐ
+void L_ws2812_rgb(u8 L_ws_num,u8 ws_r,u8 ws_g,u8 ws_b)    //ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
     L_ws_data[(L_ws_num-1)*3]=ws_g;
     L_ws_data[(L_ws_num-1)*3+1]=ws_r;
     L_ws_data[(L_ws_num-1)*3+2]=ws_b;
 }
 
-void L_ws2812_refresh(u8 ws_count)          //¸ù¾ÝÊý×éÊý¾Ý¶Ô¶ÔÓ¦µÄµÆ½øÐÐµãÁÁ
+void L_ws2812_refresh(u8 ws_count)          //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¶Ô¶ï¿½Ó¦ï¿½ÄµÆ½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
 {
     u8 L_ws_ri=0;
     
@@ -84,18 +84,18 @@ void L_ws2812_refresh(u8 ws_count)          //¸ù¾ÝÊý×éÊý¾Ý¶Ô¶ÔÓ¦µÄµÆ½øÐÐµãÁÁ
         if((L_ws_data[L_ws_ri]&0x01)==0) L_send_0(); else L_send_1();
     }
     
-    //ÑÓÊ±Ò»¶ÎÊ±¼ä
+    //ï¿½ï¿½Ê±Ò»ï¿½ï¿½Ê±ï¿½ï¿½
     L_ws2812_reset();
 }
 
-void R_ws2812_rgb(u8 R_ws_num,u8 ws_r,u8 ws_g,u8 ws_b)     //½«ÑÕÉ«Êý¾Ý·¢ËÍµ½Êý×éÖÐ
+void R_ws2812_rgb(u8 R_ws_num,u8 ws_r,u8 ws_g,u8 ws_b)     //ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
     R_ws_data[(R_ws_num-1)*3]=ws_g;
     R_ws_data[(R_ws_num-1)*3+1]=ws_r;
     R_ws_data[(R_ws_num-1)*3+2]=ws_b;
 }
 
-void R_ws2812_refresh(u8 ws_count)            //¸ù¾ÝÊý×éÊý¾Ý¶Ô¶ÔÓ¦µÄµÆ½øÐÐµãÁÁ
+void R_ws2812_refresh(u8 ws_count)            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¶Ô¶ï¿½Ó¦ï¿½ÄµÆ½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
 {
     u8 R_ws_ri=0;
     
@@ -111,14 +111,14 @@ void R_ws2812_refresh(u8 ws_count)            //¸ù¾ÝÊý×éÊý¾Ý¶Ô¶ÔÓ¦µÄµÆ½øÐÐµãÁÁ
         if((R_ws_data[R_ws_ri]&0x01)==0) R_send_0(); else R_send_1();
     }
     
-    //ÑÓÊ±Ò»¶ÎÊ±¼ä
+    //ï¿½ï¿½Ê±Ò»ï¿½ï¿½Ê±ï¿½ï¿½
     R_ws2812_reset();
 }
-/***Ç°µÆ²ÊÉ«ìÅ²ÊµÆ***/   
+/***Ç°ï¿½Æ²ï¿½É«ï¿½Å²Êµï¿½***/   
 void L_led_mode(void)
 {
-	u8 times;
-	 while(1) 
+	u8 times = 0;
+	while(USART_RX_STA != 2)
     {  
         times++; 
 
@@ -330,7 +330,7 @@ void L_led_mode(void)
         delay_ms(1000);        
     }  
 }
-/***ºóµÆÎ²µÆ±íÊ¾µ¹³µ***/
+/***ï¿½ï¿½ï¿½Î²ï¿½Æ±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½***/
 void R_led_mode(void)
 {
 	
@@ -343,7 +343,7 @@ void R_led_mode(void)
                 R_ws2812_refresh(led_num);
 		           
 }
-/*****ºóµÆ¹Ø±Õ*****/
+/*****ï¿½ï¿½Æ¹Ø±ï¿½*****/
 void R_led_CLC(void)
 {
 	              R_ws2812_rgb(1, WS_DARK);
@@ -355,43 +355,43 @@ void R_led_CLC(void)
                 R_ws2812_refresh(led_num);
 		           
 }
-/*****Ç°µÆÅÜÂíµÆÐ§¹û*****/
-void L_runingled(void)    //Ç°µÆÅÜÂíµÆ
+/*****Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½*****/
+void L_runingled(void)    //Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	u8 i,j;
-/*Á÷¹â*/	
+/*ï¿½ï¿½ï¿½ï¿½*/	
 	for(j=1;j<7;j++)    
 	 { 
-		 for(i=1;i<7;i++)    //°ÑµÆµÄÑÕÉ«Ð´ÔÚÃ¿¸öµÆµÄÊý×éÖÐ
+		 for(i=1;i<7;i++)    //ï¿½ÑµÆµï¿½ï¿½ï¿½É«Ð´ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			if(i==j)
 				L_ws2812_rgb(i, WS_WHITE);
 			else
 				L_ws2812_rgb(i, WS_DARK);
 		}	
-		 L_ws2812_refresh(led_num);  //¸üÐÂµÆÑÕÉ«
+		 L_ws2812_refresh(led_num);  //ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½É«
 		 delay_ms(100);
 	 }
-/*·´Á÷¹â*/	
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/	
 	for(j=6;j>=1;j--)    
 	 { 
-		 for(i=6;i>=1;i--)    //°ÑµÆµÄÑÕÉ«Ð´ÔÚÃ¿¸öµÆµÄÊý×éÖÐ
+		 for(i=6;i>=1;i--)    //ï¿½ÑµÆµï¿½ï¿½ï¿½É«Ð´ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			if(i==j)
 				L_ws2812_rgb(i, WS_WHITE);
 			else
 				L_ws2812_rgb(i, WS_DARK);
 		}	
-		 L_ws2812_refresh(led_num);  //¸üÐÂµÆÑÕÉ«
+		 L_ws2812_refresh(led_num);  //ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½É«
 		 delay_ms(100);
 	 }
 	 
-/***»ØÏì³µµÆ***/
+/***ï¿½ï¿½ï¿½ì³µï¿½ï¿½***/
 	 while(1) 
     {  
-			for(j=1;j<6;j++)        //»Ø
+			for(j=1;j<6;j++)        //ï¿½ï¿½
 			{	 
-					for(i=1;i<7;i++)    //°ÑµÆµÄÑÕÉ«Ð´ÔÚÃ¿¸öµÆµÄÊý×éÖÐ
+					for(i=1;i<7;i++)    //ï¿½ÑµÆµï¿½ï¿½ï¿½É«Ð´ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					{
 						if(j==1)    // * _ _ _ _ *
 						{	
@@ -429,7 +429,7 @@ void L_runingled(void)    //Ç°µÆÅÜÂíµÆ
 							L_ws2812_rgb(i, WS_DARK);
 						}
 					}
-					L_ws2812_refresh(led_num);  //¸üÐÂµÆÑÕÉ«
+					L_ws2812_refresh(led_num);  //ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½É«
 					if(j==3)
 					delay_ms(200);
 					else
