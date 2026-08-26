@@ -1,30 +1,39 @@
 #include "motor.h"
 
-/**************************************************************************
-函数功能：初始化电机方向
-入口参数：无
-返回  值：无
-**************************************************************************/
+static int LimitSpeed(int speed)
+{
+    if (speed > MOTOR_PWM_MAX)
+        return MOTOR_PWM_MAX;
+
+    if (speed < -MOTOR_PWM_MAX)
+        return -MOTOR_PWM_MAX;
+
+    return speed;
+}
+
+static int PositiveSpeed(int speed)
+{
+    if (speed < 0)
+        speed = -speed;
+
+    return LimitSpeed(speed);
+}
+
 void Motor_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
 
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);  // 使能PB端口时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14 | GPIO_Pin_13; // 端口配置
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;         // 推挽输出
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;        // 50M
-    GPIO_Init(GPIOB, &GPIO_InitStructure);                    // 初始化GPIOB
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14 | GPIO_Pin_13;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
 
     AIN = 0;
     BIN = 0;
 }
 
-/**************************************************************************
-函数功能：初始化定时器PWM
-入口参数：无
-返回  值：无
-**************************************************************************/
 void PWM_Init(u16 arr, u16 psc)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
@@ -34,11 +43,10 @@ void PWM_Init(u16 arr, u16 psc)
     Motor_Init();
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); // 使能GPIO外设时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 
-    // 设置引脚为复用输出功能，输出PWM脉冲波形
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;       // 复用推挽输出
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
 
@@ -57,30 +65,22 @@ void PWM_Init(u16 arr, u16 psc)
     TIM_OC2Init(TIM4, &TIM_OCInitStructure);
 
     TIM_CtrlPWMOutputs(TIM4, ENABLE);
-
     TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
     TIM_OC2PreloadConfig(TIM4, TIM_OCPreload_Enable);
-
     TIM_ARRPreloadConfig(TIM4, ENABLE);
-
     TIM_Cmd(TIM4, ENABLE);
 }
 
 u32 myabs(long int a)
 {
-    u32 temp;
-
     if (a < 0)
-        temp = -a;
-    else
-        temp = a;
+        return (u32)(-a);
 
-    return temp;
+    return (u32)a;
 }
 
 void Set_Pwm(int moto1, int moto2)
 {
-    // XIN、PWMX在motor.h中有定义
     if (moto2 >= 0)
     {
         AIN = 0;
@@ -89,7 +89,7 @@ void Set_Pwm(int moto1, int moto2)
     else
     {
         AIN = 1;
-        PWMA = 7199 - myabs(moto2);
+        PWMA = MOTOR_PWM_MAX - myabs(moto2);
     }
 
     if (moto1 >= 0)
@@ -100,6 +100,60 @@ void Set_Pwm(int moto1, int moto2)
     else
     {
         BIN = 1;
-        PWMB = 7199 - myabs(moto1);
+        PWMB = MOTOR_PWM_MAX - myabs(moto1);
     }
+}
+
+void Car_SetSpeed(int left_speed, int right_speed)
+{
+    left_speed = LimitSpeed(left_speed);
+    right_speed = LimitSpeed(right_speed);
+
+    Set_Pwm(right_speed, left_speed);
+}
+
+void Car_Stop(void)
+{
+    Car_SetSpeed(0, 0);
+}
+
+void Car_Forward(int speed)
+{
+    speed = PositiveSpeed(speed);
+    Car_SetSpeed(speed, speed);
+}
+
+void Car_Backward(int speed)
+{
+    speed = PositiveSpeed(speed);
+    Car_SetSpeed(-speed, -speed);
+}
+
+void Car_TurnLeft(int speed)
+{
+    speed = PositiveSpeed(speed);
+    Car_SetSpeed(0, speed);
+}
+
+void Car_TurnRight(int speed)
+{
+    speed = PositiveSpeed(speed);
+    Car_SetSpeed(speed, 0);
+}
+
+void Car_SpinLeft(int speed)
+{
+    speed = PositiveSpeed(speed);
+    Car_SetSpeed(-speed, speed);
+}
+
+void Car_SpinRight(int speed)
+{
+    speed = PositiveSpeed(speed);
+    Car_SetSpeed(speed, -speed);
+}
+
+void Car_Arc(int left_speed, int right_speed)
+{
+    Car_SetSpeed(left_speed, right_speed);
 }
