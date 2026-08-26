@@ -744,3 +744,69 @@ Staging robocopy return code: 1
 [Hi3861] result: synchronized
 
 Overall result: SUCCESS
+==============================================================================
+2026-08-26 16:33:54
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Preview
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  STM32\USER\motor.c
+  STM32\USER\motor.h
+Modified:
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+Result: Preview completed; no target files were changed.
+==============================================================================
+2026-08-26 16:34:12
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Synchronization
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  STM32\USER\motor.c
+  STM32\USER\motor.h
+Modified:
+  STM32\USER\main.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[STM32] final robocopy return code: 1
+[STM32] result: synchronized
+
+[Hi3861] final robocopy return code: 0
+[Hi3861] result: synchronized
+
+Overall result: SUCCESS
