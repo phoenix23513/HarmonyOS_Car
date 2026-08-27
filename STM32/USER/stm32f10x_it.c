@@ -23,7 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h" 
-
+#include "encoder_control.h"
 
  
 void NMI_Handler(void)
@@ -77,8 +77,18 @@ void PendSV_Handler(void)
  
 void SysTick_Handler(void)
 {
-}
+    static uint16_t encoder_ms = 0;
 
+    /* 原SysTick_Handler中的其他代码保留在这里 */
+
+    encoder_ms++;
+
+    if (encoder_ms >= 100)
+    {
+        encoder_ms = 0;
+        System_Control();
+    }
+}
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
