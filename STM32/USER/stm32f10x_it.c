@@ -75,20 +75,25 @@ void PendSV_Handler(void)
 {
 }
  
+/**
+ * @brief  系统滴答定时器中断服务函数
+ * @param  None
+ * @retval None
+ */
 void SysTick_Handler(void)
 {
-    static uint16_t encoder_ms = 0;
+		
+    millis++; // SysTick每1ms进入一次，毫秒计数加1
 
-    /* 原SysTick_Handler中的其他代码保留在这里 */
-
-    encoder_ms++;
-
-    if (encoder_ms >= 100)
+    if (millis % OverflowTime == 0) // 每OverflowTime ms执行一次左右轮速度闭环
     {
-        encoder_ms = 0;
-        System_Control();
+        millis = 0; // 控制周期计时清零
+        // seconds++; // 秒数加1
+
+        System_Control(); // TIM2左轮与TIM3右轮反馈进入各自闭环后更新电机PWM
     }
 }
+
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

@@ -79,6 +79,15 @@ u32 myabs(long int a)
     return (u32)a;
 }
 
+/*
+ * 底层电机接口：
+ * moto1控制右轮，写入PWMB/TIM4_CH1（PB6），方向脚为BIN/PB13；
+ * moto2控制左轮，写入PWMA/TIM4_CH2（PB7），方向脚为AIN/PB14。
+ * 参数非负时方向脚为0，CCR写入参数绝对值；参数为负时方向脚为1，
+ * CCR写入MOTOR_PWM_MAX减去参数绝对值。
+ * 当前System_Control调用Set_Pwm(Motor_B, Motor_A)，使右、左轮闭环输出
+ * 分别进入第1、第2参数并驱动同侧电机；该对应关系已经实车验证。
+ */
 void Set_Pwm(int moto1, int moto2)
 {
     if (moto2 >= 0)
@@ -104,6 +113,11 @@ void Set_Pwm(int moto1, int moto2)
     }
 }
 
+/*
+ * 高层参数顺序为左轮、右轮，内部交换后传给Set_Pwm。
+ * 以下Forward/Backward等函数名沿用原接口；在方向组合完成实车复核前，
+ * 不能仅根据函数名认定整车的实际运动方向。
+ */
 void Car_SetSpeed(int left_speed, int right_speed)
 {
     left_speed = LimitSpeed(left_speed);

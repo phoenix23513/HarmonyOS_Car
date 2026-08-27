@@ -2,7 +2,7 @@
 #include "stm32f10x_gpio.h"
 
 /**************************************************************************
-函数功能：把TIM2初始化为编码器接口模式
+函数功能：把TIM2初始化为左轮编码器接口模式（PA0、PA1）
 入口参数：无
 返回  值：无
 **************************************************************************/
@@ -12,12 +12,12 @@ void Encoder_Init_TIM2(void)
     TIM_ICInitTypeDef TIM_ICInitStructure;
     GPIO_InitTypeDef GPIO_InitStructure;
 
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);  // 使能定时器4的时钟
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 使能PB端口时钟
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);  // 使能TIM2时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 使能GPIOA端口时钟
 
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1; // 端口配置
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;  // 浮空输入
-    GPIO_Init(GPIOA, &GPIO_InitStructure);                 // 根据设定参数初始化GPIOB
+    GPIO_Init(GPIOA, &GPIO_InitStructure);                 // 根据设定参数初始化GPIOA
 
     TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
     TIM_TimeBaseStructure.TIM_Prescaler = 0x0;             // 预分频器
@@ -46,7 +46,7 @@ void Encoder_Init_TIM2(void)
 }
 
 /**************************************************************************
-函数功能：把TIM4初始化为编码器接口模式
+函数功能：把TIM3初始化为右轮编码器接口模式（PA6、PA7）
 入口参数：无
 返回  值：无
 **************************************************************************/
@@ -56,12 +56,12 @@ void Encoder_Init_TIM3(void)
     TIM_ICInitTypeDef TIM_ICInitStructure;
     GPIO_InitTypeDef GPIO_InitStructure;
 
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);  // 使能定时器4的时钟
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 使能PB端口时钟
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);  // 使能TIM3时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); // 使能GPIOA端口时钟
 
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; // 端口配置
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;  // 浮空输入
-    GPIO_Init(GPIOA, &GPIO_InitStructure);                 // 根据设定参数初始化GPIOB
+    GPIO_Init(GPIOA, &GPIO_InitStructure);                 // 根据设定参数初始化GPIOA
 
     TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
     TIM_TimeBaseStructure.TIM_Prescaler = 0x0;             // 预分频器
@@ -91,8 +91,8 @@ void Encoder_Init_TIM3(void)
 
 /**************************************************************************
 函数功能：单位时间读取编码器计数
-入口参数：定时器
-返回  值：速度值
+入口参数：TIMX=2读取左轮，TIMX=3读取右轮，其他值返回0
+返回  值：本采样周期的有符号编码器计数；读取后对应计数器清零
 **************************************************************************/
 static long Encoder_TIM_A_now;
 static long Encoder_TIM_B_now;
@@ -105,14 +105,14 @@ int Read_Encoder(u8 TIMX)
     {
         case 2:
             TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-            Encoder_TIM_A_now = (short)TIM2->CNT; // 取两次之间的差值
+            Encoder_TIM_A_now = (short)TIM2->CNT; // 左轮本周期有符号计数，正负号已实车确认
             Encoder_TIM = Encoder_TIM_A_now;
             TIM_SetCounter(TIM2, 0);
             break;
 
         case 3:
             TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
-            Encoder_TIM_B_now = (short)TIM3->CNT; // 取两次之间的差值
+            Encoder_TIM_B_now = (short)TIM3->CNT; // 右轮本周期有符号计数，正负号已实车确认
             Encoder_TIM = Encoder_TIM_B_now;
             TIM_SetCounter(TIM3, 0);
             break;

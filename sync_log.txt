@@ -906,3 +906,59 @@ Staging robocopy return code: 1
 [Hi3861] result: synchronized
 
 Overall result: SUCCESS
+==============================================================================
+2026-08-27 17:14:50
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Synchronization
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  STM32\USER\encoder.c
+  STM32\USER\encoder.h
+  STM32\USER\encoder_control.c
+  STM32\USER\encoder_control.h
+  STM32\USER\main.c
+  STM32\USER\motor.c
+  STM32\USER\motor.h
+  STM32\USER\speed_measurement.c
+  STM32\USER\stm32f10x_it.c
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  Hi3861\app\1.0_Hello_World\hello_world.c
+  Hi3861\app\3.0_SG90_Mutex\SG90.c
+  Hi3861\app\4.0_Hcsr04_Tick\Hcsr04.c
+  Hi3861\app\demolink\helloworld.c
+  Hi3861\app\iothardware\led_example.c
+  Hi3861\app\samgr\bootstrap_example.c
+  Hi3861\app\samgr\broadcast_example.c
+  Hi3861\app\samgr\example.h
+  Hi3861\app\samgr\feature_example.c
+  Hi3861\app\samgr\maintenance_example.c
+  Hi3861\app\samgr\service_example.c
+  Hi3861\app\samgr\service_recovery_example.c
+  Hi3861\app\samgr\specified_task_example.c
+  Hi3861\app\samgr\task_example.c
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[STM32] final robocopy return code: 1
+[STM32] result: synchronized
+
+[Hi3861] final robocopy return code: 1
+[Hi3861] result: synchronized
+
+Overall result: SUCCESS
