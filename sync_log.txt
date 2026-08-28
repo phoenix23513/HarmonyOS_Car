@@ -962,3 +962,86 @@ Staging robocopy return code: 1
 [Hi3861] result: synchronized
 
 Overall result: SUCCESS
+==============================================================================
+2026-08-27 17:31:50
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Preview
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Repository root files]
+LearningLog: Unchanged
+Source: E:\unmanned_car\learning_log.md
+Target: E:\github\unmanned-car\learning_log.md
+
+Result: Preview completed; no target files were changed.
+==============================================================================
+2026-08-28 15:17:35
+Source root: E:\unmanned_car
+Target root: E:\github\unmanned-car
+Mode: Synchronization
+
+[STM32]
+Source: E:\unmanned_car\STM32_UART_Demo
+Target: E:\github\unmanned-car\STM32
+Added:
+  (none)
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Hi3861]
+Source: E:\unmanned_car\Hi3861_Support_Package
+Target: E:\github\unmanned-car\Hi3861
+Added:
+  Hi3861\app\7.0_I2c_Ssd1306\I2c_Ssd1306.c
+  Hi3861\app\7.0_I2c_Ssd1306\include\hal_bsp_ssd1306.h
+  Hi3861\app\7.0_I2c_Ssd1306\include\hal_bsp_ssd1306_bmps.h
+  Hi3861\app\7.0_I2c_Ssd1306\include\hal_bsp_ssd1306_fonts.h
+  Hi3861\app\7.0_I2c_Ssd1306\src\hal_bsp_ssd1306.c
+  Hi3861\app\8.0_Sht20\include\hal_bsp_sht20.h
+  Hi3861\app\8.0_Sht20\Sht20.c
+  Hi3861\app\8.0_Sht20\src\hal_bsp_sht20.c
+Modified:
+  (none)
+Deleted (recorded before deletion):
+  (none)
+Staging robocopy return code: 1
+
+[Repository root files]
+LearningLog: Modified
+Source: E:\unmanned_car\learning_log.md
+Target: E:\github\unmanned-car\learning_log.md
+
+[STM32] final robocopy return code: 0
+[STM32] result: synchronized
+
+[Hi3861] final robocopy return code: 1
+[Hi3861] result: synchronized
+
+[LearningLog] result: synchronized (Modified)
+
+Overall result: SUCCESS
