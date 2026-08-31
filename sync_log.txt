@@ -1045,3 +1045,16 @@ Target: E:\github\unmanned-car\learning_log.md
 [LearningLog] result: synchronized (Modified)
 
 Overall result: SUCCESS
+
+==============================================================================
+2026-08-31 20:48:46
+Mode: Automated publication
+VM app root: Z:\home\harmony\harmony\code\code-1.0\applications\sample\wifi-iot\app
+Local STM32 root: E:\unmanned_car\STM32_UART_Demo
+Showcase root: E:\github\unmanned-car
+Experiments: 10.0_multi_sensor_monitor, 2.0_TCRT_Timer, 9.0_Ap3216c, 9.1_ap3216c_als_test
+Commit message: complete task 10 and 13
+Deletion policy: destination-only files preserved
+
+Copied files: no content changes required
+Result: synchronization completed; Git commit and push requested

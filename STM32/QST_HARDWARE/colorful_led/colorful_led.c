@@ -440,6 +440,28 @@ void L_runingled(void)    //ǰ��������
     }  
 }
 
+void FrontLight_On(void)
+{
+    u8 i;
+
+    for(i = 1; i <= led_num; i++)
+    {
+        L_ws2812_rgb(i, WS_WHITE);
+    }
+    L_ws2812_refresh(led_num);
+}
+
+void FrontLight_Off(void)
+{
+    u8 i;
+
+    for(i = 1; i <= led_num; i++)
+    {
+        L_ws2812_rgb(i, WS_DARK);
+    }
+    L_ws2812_refresh(led_num);
+}
+
 
 
 

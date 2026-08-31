@@ -5,6 +5,8 @@
 
 int main(void)
 {
+    u8 front_light_command;
+
     Stm32_Clock_Init(9);               // 外部时钟8MHz，9倍频，8*9=72MHz
     MY_NVIC_PriorityGroupConfig(2);    // 中断优先级分组
     uart_init(115200);                 // 串口初始化为115200
@@ -19,12 +21,27 @@ int main(void)
     colorful_led_Init();               // 炫彩灯初始化
 
     SysTick_Config(72000000 / 1000);   // 滴答定时器，每1ms触发一次中断
+    FrontLight_Off();                   // 上电默认关闭前灯
 
     printf("QST青软\r\n");
 
     /**主要程序**/
     while (1)
     {
-        delay_ms(100);
+        __disable_irq();
+        front_light_command = g_front_light_command;
+        g_front_light_command = FRONT_LIGHT_COMMAND_NONE;
+        __enable_irq();
+
+        if(front_light_command == FRONT_LIGHT_COMMAND_ON)
+        {
+            FrontLight_On();
+        }
+        else if(front_light_command == FRONT_LIGHT_COMMAND_OFF)
+        {
+            FrontLight_Off();
+        }
+
+        delay_ms(10);
     }
 }

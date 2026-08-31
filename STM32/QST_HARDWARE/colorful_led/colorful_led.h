@@ -189,4 +189,6 @@ void R_led_mode(void);
 void L_led_mode(void);
 void R_led_CLC(void);
 void L_runingled(void);    //«∞µ∆≈‹¬Ìµ∆
+void FrontLight_On(void);
+void FrontLight_Off(void);
 
