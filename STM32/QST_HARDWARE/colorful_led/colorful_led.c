@@ -4,7 +4,7 @@ u8 L_ws_data[ws_num];
 u8 R_ws_data[ws_num];
 /**************************************************************************
 �������ܣ�colorful_led�ӿڳ�ʼ��
-��ڲ������� 
+��ڲ�������?
 ����  ֵ����
 **************************************************************************/
 void colorful_led_Init(void)
@@ -12,7 +12,7 @@ void colorful_led_Init(void)
   GPIO_InitTypeDef GPIO_InitStructure;
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //ʹ�ܶ˿�ʱ��
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13|GPIO_Pin_14;	          //�˿�����
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      //�������
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      //�������?
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     //50M
   GPIO_Init(GPIOC, &GPIO_InitStructure);					      //�����趨������ʼ��GPIOA 
 	
@@ -330,7 +330,7 @@ void L_led_mode(void)
         delay_ms(1000);        
     }  
 }
-/***���β�Ʊ�ʾ����***/
+/***���β�Ʊ�ʾ����?**/
 void R_led_mode(void)
 {
 	
@@ -343,7 +343,7 @@ void R_led_mode(void)
                 R_ws2812_refresh(led_num);
 		           
 }
-/*****��ƹر�*****/
+/*****��ƹر�?****/
 void R_led_CLC(void)
 {
 	              R_ws2812_rgb(1, WS_DARK);
@@ -447,6 +447,32 @@ void FrontLight_On(void)
     for(i = 1; i <= led_num; i++)
     {
         L_ws2812_rgb(i, WS_WHITE);
+    }
+    L_ws2812_refresh(led_num);
+}
+
+void FrontLight_Left_On(void)
+{
+    u8 i;
+    for(i = 1; i <= led_num; i++)
+    {
+        if(i >= 4)
+            L_ws2812_rgb(i, WS_WHITE);
+        else
+            L_ws2812_rgb(i, WS_DARK);
+    }
+    L_ws2812_refresh(led_num);
+}
+
+void FrontLight_Right_On(void)
+{
+    u8 i;
+    for(i = 1; i <= led_num; i++)
+    {
+        if(i <= 3)
+            L_ws2812_rgb(i, WS_WHITE);
+        else
+            L_ws2812_rgb(i, WS_DARK);
     }
     L_ws2812_refresh(led_num);
 }

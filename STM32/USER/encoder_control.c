@@ -1,6 +1,10 @@
 #include "encoder_control.h"
 #include "motor.h"
+#include "usart.h"
 //typedef enum {false = 0, true = 1} bool;
+
+#define MOTOR_COMMAND_TIMEOUT_CYCLES 15
+#define TURN_SPEED_DIFFERENCE_X100 30
 
 /*
  * 闭环A：TIM2左轮反馈 -> Motor_A -> Set_Pwm第2参数 -> PWMA/AIN左轮。
@@ -12,6 +16,17 @@ int L_coder, R_coder;
 int Motor_A, Motor_B;          // Motor_A为左轮闭环输出，Motor_B为右轮闭环输出
 int OverflowTime = 100;
 volatile uint32_t millis = 0;
+
+static void SetMotionLightCommand(u8 command)
+{
+    static u8 last_command = FRONT_LIGHT_COMMAND_NONE;
+
+    if (command != last_command)
+    {
+        g_front_light_command = command;
+        last_command = command;
+    }
+}
 
 /**************************************************************************
 函数功能：当前速度闭环累加控制器（函数名保留Incremental_PI）
@@ -45,6 +60,14 @@ int Incremental_PI_A(int Encoders_A, int Target_A)
     float MaxIntegral = 0.0;
     float MinIntegral = 0.0;
     float Error_A = (float)(Target_A - Encoders_A); // 计算偏差
+
+    if (Target_A == 0)
+    {
+        Pwm_A = 0;
+        Integral_A = 0;
+        Error_prev_A = 0;
+        return 0;
+    }
 
     Integral_A += Error_A; // 积分项更新
 
@@ -89,6 +112,14 @@ int Incremental_PI_B(int Encoders_B, int Target_B)
     float MaxIntegral = 0.0;
     float MinIntegral = 0.0;
     float Error_B = (float)(Target_B - Encoders_B); // 计算偏差
+
+    if (Target_B == 0)
+    {
+        Pwm_B = 0;
+        Integral_B = 0;
+        Error_prev_B = 0;
+        return 0;
+    }
 
     Integral_B += Error_B; // 积分项更新
 
@@ -135,59 +166,78 @@ int Rs_To_CPR(float rads)
 }
 
 /**************************************************************************
-函数功能：实测运动流程控制及左右轮速度闭环
+函数功能：根据UART协议目标执行左右轮速度闭环
 入口参数：无
 返回  值：无
-说明：每100ms调用一次；前30个周期前进，随后30个周期后退，之后停车
+说明：每100ms调用一次；1.5秒未收到有效控制帧时自动停车
 **************************************************************************/
 void System_Control(void)
 {
-		static int motion_count = 0; // 已完成的运动控制周期数，每周期100ms
-    // 左、右轮每个控制周期的目标编码器计数
-    int TageA = 0;
-    int TageB = 0;
+    static float left_target_rps = 0.0f;
+    static float right_target_rps = 0.0f;
+    static int command_timeout_cycles = MOTOR_COMMAND_TIMEOUT_CYCLES;
+    u8 left_direction;
+    u8 left_speed;
+    u8 right_direction;
+    u8 right_speed;
+    int TageA;
+    int TageB;
+
+    if (g_motor_frame_ready)
+    {
+        left_direction = g_motor_command[0];
+        left_speed = g_motor_command[1];
+        right_direction = g_motor_command[2];
+        right_speed = g_motor_command[3];
+        g_motor_frame_ready = 0;
+
+        left_target_rps = left_speed / 100.0f;
+        right_target_rps = right_speed / 100.0f;
+        if (left_direction == 1)
+            left_target_rps = -left_target_rps;
+        if (right_direction == 1)
+            right_target_rps = -right_target_rps;
+
+        if (left_speed == 0 && right_speed == 0)
+            SetMotionLightCommand(FRONT_LIGHT_COMMAND_OFF);
+        else if (left_direction == 1 && right_direction == 1)
+            SetMotionLightCommand(FRONT_LIGHT_COMMAND_REAR);
+        else if (left_direction == 0 && right_direction == 0)
+        {
+            if ((int)right_speed - (int)left_speed >= TURN_SPEED_DIFFERENCE_X100)
+                SetMotionLightCommand(FRONT_LIGHT_COMMAND_LEFT);
+            else if ((int)left_speed - (int)right_speed >= TURN_SPEED_DIFFERENCE_X100)
+                SetMotionLightCommand(FRONT_LIGHT_COMMAND_RIGHT);
+            else
+                SetMotionLightCommand(FRONT_LIGHT_COMMAND_ON);
+        }
+        else
+            SetMotionLightCommand(FRONT_LIGHT_COMMAND_OFF);
+
+        command_timeout_cycles = 0;
+    }
+    else if (command_timeout_cycles < MOTOR_COMMAND_TIMEOUT_CYCLES)
+    {
+        command_timeout_cycles++;
+    }
+
+    if (command_timeout_cycles >= MOTOR_COMMAND_TIMEOUT_CYCLES)
+    {
+        left_target_rps = 0.0f;
+        right_target_rps = 0.0f;
+        SetMotionLightCommand(FRONT_LIGHT_COMMAND_OFF);
+    }
 
     // 每OverflowTime ms读取并清零：TIM2为左轮，TIM3为右轮
     L_coder = Read_Encoder(2);
     R_coder = Read_Encoder(3);
-    printf("left  coder : %d\r\n", L_coder);
-    printf("right coder : %d\r\n", R_coder);
-
-   if (motion_count < 30)
-{
-    /* 实测前进约3秒：左轮目标1.0，右轮目标0.97用于修正左偏 */
-    TageA = Rs_To_CPR(1.0);
-    TageB = Rs_To_CPR(0.97);
-    printf("[FW_06][FORWARD] count=%d\r\n", motion_count);
-}
-else if (motion_count < 60)
-{
-    /* 实测后退约3秒：左右轮目标均为-1.0 */
-    TageA = Rs_To_CPR(-1.0);
-    TageB = Rs_To_CPR(-1.0);
-    printf("[FW_06][BACKWARD] count=%d\r\n", motion_count);
-}
-else
-{
-    /* 60个运动周期完成后持续停车 */
-    Set_Pwm(0, 0);
-    printf("[FW_05][STOP]\r\n");
-    return;
-}
-
-motion_count++;
-
-    printf("TageA coder : %d\r\n", TageA);
-    printf("TageB coder : %d\r\n", TageB);
+    TageA = Rs_To_CPR(left_target_rps);
+    TageB = Rs_To_CPR(right_target_rps);
 
     // 左轮反馈计算Motor_A，右轮反馈计算Motor_B；输出写入同侧电机
     Motor_A = Incremental_PI_A(L_coder, TageA);
     Motor_B = Incremental_PI_B(R_coder, TageB);
-
-    printf("Motor_A pwm : %d\r\n", Motor_A);
-    printf("Motor_B pwm : %d\r\n", Motor_B);
-
     Set_Pwm(Motor_B, Motor_A); // 第1参数驱动右轮，第2参数驱动左轮
-	}
+}
 
 

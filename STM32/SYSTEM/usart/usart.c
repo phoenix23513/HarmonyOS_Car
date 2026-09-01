@@ -33,6 +33,8 @@ int fputc(int ch, FILE *f)
 u8 USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
 volatile u8 USART_RX_STA = 0;      //接收状态标记	  
 volatile u8 g_front_light_command = FRONT_LIGHT_COMMAND_NONE;
+volatile u8 g_motor_command[4] = {0, 0, 0, 0};
+volatile u8 g_motor_frame_ready = 0;
 u8 count=0;
 
 /* 帧格式：FA 4C 状态 校验 FB，校验字节为 4C ^ 状态。 */
@@ -86,6 +88,38 @@ static u8 FrontLight_ParseByte(u8 data)
     }
 }
 
+/* 帧格式：FC 左方向 左速度 右方向 右速度 FD。 */
+static u8 MotorControl_ParseByte(u8 data)
+{
+    static u8 frame[6];
+    static u8 frame_index = 0;
+
+    if(data == 0xFC)
+    {
+        frame[0] = data;
+        frame_index = 1;
+        return 1;
+    }
+    if(frame_index == 0)
+        return 0;
+
+    frame[frame_index++] = data;
+    if(frame_index < 6)
+        return 1;
+
+    frame_index = 0;
+    if(frame[5] != 0xFD || frame[1] > 1 || frame[2] > 150 ||
+       frame[3] > 1 || frame[4] > 150)
+        return 1;
+
+    g_motor_command[0] = frame[1];
+    g_motor_command[1] = frame[2];
+    g_motor_command[2] = frame[3];
+    g_motor_command[3] = frame[4];
+    g_motor_frame_ready = 1;
+    return 1;
+}
+
 void uart_init(u32 bound){
   //GPIO端口设置
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -134,6 +168,12 @@ void USART1_IRQHandler(void)
     if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
     {
         Res = (u8)USART_ReceiveData(USART1);
+
+        if(MotorControl_ParseByte(Res))
+        {
+            USART_ClearFlag(USART1, USART_FLAG_RXNE);
+            return;
+        }
 
         /* 二进制灯光控制帧不进入原有文本命令缓冲区。 */
         if(FrontLight_ParseByte(Res))

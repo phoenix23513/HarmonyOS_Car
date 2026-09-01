@@ -4,6 +4,9 @@
 #define FRONT_LIGHT_COMMAND_NONE  0
 #define FRONT_LIGHT_COMMAND_OFF   1
 #define FRONT_LIGHT_COMMAND_ON    2
+#define FRONT_LIGHT_COMMAND_LEFT  3
+#define FRONT_LIGHT_COMMAND_RIGHT 4
+#define FRONT_LIGHT_COMMAND_REAR  5
 #include "stdio.h"	
 #include "sys.h" 
 
@@ -13,6 +16,8 @@
 extern u8  USART_RX_BUF[USART_REC_LEN]; //接收缓冲,最大USART_REC_LEN个字节.末字节为换行符 
 extern volatile u8 USART_RX_STA;        		//接收状态标记	volatile 表示这个变量可能被串口中断异步修改
 extern volatile u8 g_front_light_command;
+extern volatile u8 g_motor_command[4];
+extern volatile u8 g_motor_frame_ready;
 //如果想串口中断接收，请不要注释以下宏定义
 void uart_init(u32 bound);
 

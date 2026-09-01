@@ -22,6 +22,7 @@ int main(void)
 
     SysTick_Config(72000000 / 1000);   // 滴答定时器，每1ms触发一次中断
     FrontLight_Off();                   // 上电默认关闭前灯
+    R_led_CLC();                        // 上电默认关闭后灯
 
     printf("QST青软\r\n");
 
@@ -36,10 +37,27 @@ int main(void)
         if(front_light_command == FRONT_LIGHT_COMMAND_ON)
         {
             FrontLight_On();
+            R_led_CLC();
+        }
+        else if(front_light_command == FRONT_LIGHT_COMMAND_LEFT)
+        {
+            FrontLight_Left_On();
+            R_led_CLC();
+        }
+        else if(front_light_command == FRONT_LIGHT_COMMAND_RIGHT)
+        {
+            FrontLight_Right_On();
+            R_led_CLC();
+        }
+        else if(front_light_command == FRONT_LIGHT_COMMAND_REAR)
+        {
+            FrontLight_Off();
+            R_led_mode();
         }
         else if(front_light_command == FRONT_LIGHT_COMMAND_OFF)
         {
             FrontLight_Off();
+            R_led_CLC();
         }
 
         delay_ms(10);
