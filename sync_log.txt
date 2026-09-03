@@ -1089,3 +1089,17 @@ Deletion policy: destination-only files preserved
 Hi3861展示：14.0_bluetooth_control, 新增: 1 file(s)
 学习日志, 更新: 1 file(s)
 Result: synchronization completed; Git commit and push requested
+
+==============================================================================
+2026-09-03 16:21:01
+Mode: Automated publication
+VM app root: Z:\home\harmony\harmony\code\code-1.0\applications\sample\wifi-iot\app
+Local STM32 root: E:\unmanned_car\STM32_UART_Demo
+Showcase root: E:\github\unmanned-car
+Experiments: 17.0_ultrasonic_avoidance
+Commit message: Add ultrasonic obstacle avoidance and infrared restricted-area detection
+Deletion policy: destination-only files preserved
+
+Hi3861展示：17.0_ultrasonic_avoidance, 新增: 5 file(s)
+学习日志, 更新: 1 file(s)
+Result: synchronization completed; Git commit and push requested
