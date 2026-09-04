@@ -1103,3 +1103,17 @@ Deletion policy: destination-only files preserved
 Hi3861展示：17.0_ultrasonic_avoidance, 新增: 5 file(s)
 学习日志, 更新: 1 file(s)
 Result: synchronization completed; Git commit and push requested
+
+==============================================================================
+2026-09-04 16:18:29
+Mode: Automated publication
+VM app root: Z:\home\harmony\harmony\code\code-1.0\applications\sample\wifi-iot\app
+Local STM32 root: E:\unmanned_car\STM32_UART_Demo
+Showcase root: E:\github\unmanned-car
+Experiments: 18.0_line_following
+Commit message: complete and validate autonomous line-following with reliable Y-junction handling
+Deletion policy: destination-only files preserved
+
+Hi3861展示：18.0_line_following, 新增: 1 file(s)
+学习日志, 更新: 1 file(s)
+Result: synchronization completed; Git commit and push requested
