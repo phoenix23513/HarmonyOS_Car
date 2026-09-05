@@ -1117,3 +1117,31 @@ Deletion policy: destination-only files preserved
 Hi3861展示：18.0_line_following, 新增: 1 file(s)
 学习日志, 更新: 1 file(s)
 Result: synchronization completed; Git commit and push requested
+
+==============================================================================
+2026-09-04 21:30:01
+Mode: Automated publication
+VM app root: Z:\home\harmony\harmony\code\code-1.0\applications\sample\wifi-iot\app
+Local STM32 root: E:\unmanned_car\STM32_UART_Demo
+Showcase root: E:\github\unmanned-car
+Experiments: 10.0_WIFI_Connect
+Commit message: complete task 14
+Deletion policy: destination-only files preserved
+
+虚拟机→本地：10.0_WIFI_Connect, 更新: 1 file(s)
+Hi3861展示：10.0_WIFI_Connect, 新增: 1 file(s)
+学习日志, 更新: 1 file(s)
+Result: synchronization completed; Git commit and push requested
+
+==============================================================================
+2026-09-04 21:30:43
+Mode: Automated publication
+VM app root: Z:\home\harmony\harmony\code\code-1.0\applications\sample\wifi-iot\app
+Local STM32 root: E:\unmanned_car\STM32_UART_Demo
+Showcase root: E:\github\unmanned-car
+Experiments: 10.0_WIFI_Connect
+Commit message: complete task 14
+Deletion policy: destination-only files preserved
+
+Copied files: no content changes required
+Result: synchronization completed; Git commit and push requested
